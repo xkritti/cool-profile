@@ -13,23 +13,48 @@ const config: Config = {
         prompt: ["var(--font-prompt)"],
       },
       colors: {
-        "neon-yellow": "#ccff00",
-        "neon-pink": "#ff0099",
-        "neon-blue": "#00f0ff",
+        // Design System: Base & Surface
+        zinc: {
+          950: '#09090b',
+          900: '#18181b',
+          800: '#27272a',
+          600: '#52525b',
+          400: '#a1a1aa',
+          100: '#f4f4f5',
+        },
+        // Design System: Primary & Glow
+        indigo: {
+          500: '#6366f1',
+        },
+        purple: {
+          400: '#c084fc',
+        },
+        pink: {
+          400: '#e879f9',
+        },
       },
       backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-web3": "linear-gradient(to right, #6366f1, #c084fc, #e879f9)",
       },
       animation: {
         "spin-slow": "spin 3s linear infinite",
         marquee: "marquee 40s linear infinite",
+        "gradient-x": "gradient-x 15s ease infinite",
       },
       keyframes: {
         marquee: {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
+        },
+        "gradient-x": {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
         },
       },
     },
