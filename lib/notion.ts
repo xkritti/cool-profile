@@ -1,5 +1,3 @@
-import { PageObjectResponse, PartialPageObjectResponse, DatabaseObjectResponse, PartialDatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-
 // This is a mock Notion API client for local development.
 // In a real application, this would interact with the actual Notion API.
 // It provides mock data for Projects, Blog Posts, and Experiences.
