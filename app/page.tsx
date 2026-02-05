@@ -1,7 +1,7 @@
 "use client";
 
 import { BentoCard } from "./components/BentoCard";
-import { Github, Linkedin, Mail, Code2, Rocket, Brain, Smartphone, Database } from "lucide-react";
+import { Github, Linkedin, Mail, Code2, Rocket, Brain, Smartphone, Database, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Home() {
