@@ -85,13 +85,21 @@ export default async function Home() {
         <TechMarquee />
       </section>
 
-      {/* Projects Section */}
-      <section id="projects" className="container mx-auto px-6 py-32">
-        <div className="flex flex-col items-start gap-4 mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold font-prompt">
-            Selected <span className="text-zinc-400 dark:text-zinc-500">Works</span>
-          </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 max-w-xl">
+      {/* Projects Section - Beautiful Design */}
+      <section id="projects" className="relative container mx-auto px-6 py-24 overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-purple-200/40 to-pink-200/30 dark:from-purple-900/20 dark:to-pink-900/15 rounded-full blur-3xl opacity-60 dark:opacity-30" />
+        
+        <div className="relative z-10">
+          <div className="flex flex-col items-start gap-6 mb-16">
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-purple-100/80 dark:bg-purple-950/50 border border-purple-200 dark:border-purple-800/50 rounded-full backdrop-blur-sm">
+              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 animate-pulse" />
+              <span className="text-sm font-bold text-purple-700 dark:text-purple-300 uppercase tracking-wide">Featured Work</span>
+            </div>
+            <h2 className="text-5xl md:text-7xl font-black font-prompt text-purple-950 dark:text-white">
+              Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 dark:from-purple-400 dark:to-pink-400">Projects</span>
+            </h2>
+            <p className="text-xl text-purple-700 dark:text-zinc-400 max-w-2xl leading-relaxed font-medium">
             A showcase of my recent experiments, production apps, and contributions to the open-source ecosystem.
           </p>
         </div>
@@ -162,13 +170,21 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* Latest Insights Section */}
-      <section id="blog" className="container mx-auto px-6 py-32 border-t border-zinc-800/50">
-        <div className="flex flex-col items-start gap-4 mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold font-prompt">
-            Latest <span className="text-zinc-500">Insights</span>
-          </h2>
-          <p className="text-zinc-400 max-w-xl">
+      {/* Latest Insights Section - Beautiful Design */}
+      <section id="blog" className="relative container mx-auto px-6 py-24 border-t-2 border-purple-200/60 dark:border-purple-900/40 overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-pink-200/40 to-purple-200/30 dark:from-pink-900/20 dark:to-purple-900/15 rounded-full blur-3xl opacity-60 dark:opacity-30" />
+        
+        <div className="relative z-10">
+          <div className="flex flex-col items-start gap-6 mb-16">
+            <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-pink-100/80 dark:bg-pink-950/50 border border-pink-200 dark:border-pink-800/50 rounded-full backdrop-blur-sm">
+              <div className="w-2 h-2 rounded-full bg-gradient-to-r from-pink-600 to-purple-600 animate-pulse" />
+              <span className="text-sm font-bold text-pink-700 dark:text-pink-300 uppercase tracking-wide">Latest Posts</span>
+            </div>
+            <h2 className="text-5xl md:text-7xl font-black font-prompt text-purple-950 dark:text-white">
+              Latest <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-600 to-purple-600 dark:from-pink-400 dark:to-purple-400">Insights</span>
+            </h2>
+            <p className="text-xl text-purple-700 dark:text-zinc-400 max-w-2xl leading-relaxed font-medium">
             Sharing my thoughts on development, design, and the evolving Web3 landscape.
           </p>
         </div>

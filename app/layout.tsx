@@ -91,9 +91,6 @@ export default function RootLayout({
             </div>
           </nav>
           
-          {/* Add padding to account for floating navbar */}
-          <div className="h-20" />
-          
           {children}
         </ThemeProvider>
       </body>
