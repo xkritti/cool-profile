@@ -93,6 +93,10 @@ const config = {
           "0%": { transform: "translateX(0)" },
           "100%": { transform: "translateX(-50%)" },
         },
+        "loop-scroll": {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
         "gradient-x": {
           "0%, 100%": {
             "background-size": "200% 200%",
@@ -108,6 +112,7 @@ const config = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         marquee: "marquee 40s linear infinite",
+        "loop-scroll": "loop-scroll 30s linear infinite",
         "gradient-x": "gradient-x 15s ease infinite",
       },
     },
