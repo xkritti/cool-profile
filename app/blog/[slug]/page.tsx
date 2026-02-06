@@ -9,7 +9,7 @@ interface BlogDetailPageProps {
 }
 
 export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
-  const { slug } = params;
+  const { slug } = await params;
   
   // Fetch blog metadata
   const blog = await getNotionPageBySlug(slug);
