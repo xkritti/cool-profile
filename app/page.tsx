@@ -2,7 +2,9 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ProjectCard } from "@/components/ProjectCard";
+import { BlogPostCard } from "@/components/BlogPostCard";
 import { TechMarquee } from "@/components/TechMarquee";
+import { getNotionPages } from "@/lib/notion";
 import { 
   ArrowRight, 
   Github, 
@@ -14,7 +16,13 @@ import {
   Sparkles
 } from "lucide-react";
 
-export default function Home() {
+export default async function Home() {
+  const allProjects = await getNotionPages("Project");
+  const projects = allProjects.filter(p => p.published);
+  
+  const allBlogPosts = await getNotionPages("Blog");
+  const blogPosts = allBlogPosts.filter(p => p.published).slice(0, 3);
+
   return (
     <main className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-indigo-500/30">
       
@@ -31,6 +39,7 @@ export default function Home() {
             <Link href="#about" className="hover:text-white transition-colors">About</Link>
             <Link href="#projects" className="hover:text-white transition-colors">Projects</Link>
             <Link href="#experience" className="hover:text-white transition-colors">Experience</Link>
+            <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
           </div>
           <Button size="sm" className="bg-white text-black hover:bg-zinc-200 rounded-full font-medium">
             Contact Me
@@ -60,9 +69,11 @@ export default function Home() {
           </p>
 
           <div className="flex flex-col md:flex-row gap-4 pt-4">
-            <Button size="lg" className="h-12 px-8 text-lg bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-[0_0_20px_-5px_rgba(79,70,229,0.5)] transition-all hover:scale-105">
-              View Projects <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
+            <Link href="#projects">
+              <Button size="lg" className="h-12 px-8 text-lg bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-[0_0_20px_-5px_rgba(79,70,229,0.5)] transition-all hover:scale-105">
+                View Projects <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
             <Button size="lg" variant="outline" className="h-12 px-8 text-lg border-zinc-700 text-zinc-300 hover:bg-zinc-800 rounded-full">
               <Github className="mr-2 w-4 h-4" /> GitHub
             </Button>
@@ -92,34 +103,20 @@ export default function Home() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <ProjectCard 
-            title="DeFi Exchange Pro"
-            description="A decentralized exchange interface featuring real-time swaps, liquidity pools, and advanced charting."
-            tags={["Next.js", "Web3.js", "Tailwind"]}
-            link="#"
-            year="2025"
-          />
-          <ProjectCard 
-            title="NFT Marketplace"
-            description="High-performance marketplace for digital assets with auction mechanics and instant royalties."
-            tags={["Solidity", "React", "Graph Protocol"]}
-            link="#"
-            year="2024"
-          />
-          <ProjectCard 
-            title="Cyber Portfolio"
-            description="My personal interactive portfolio website with 3D elements and smooth transitions."
-            tags={["Framer Motion", "Three.js", "Vite"]}
-            link="#"
-            year="2024"
-          />
-          <ProjectCard 
-            title="DAO Governance"
-            description="Voting portal for decentralized organizations with delegation and proposal tracking."
-            tags={["Ethereum", "TypeScript", "Ethers.js"]}
-            link="#"
-            year="2023"
-          />
+          {projects.length > 0 ? (
+            projects.map((project) => (
+              <ProjectCard 
+                key={project.id}
+                title={project.title}
+                description={project.summary}
+                tags={project.tags}
+                link={project.slug.startsWith('http') ? project.slug : `#`}
+                year={project.date ? new Date(project.date).getFullYear().toString() : undefined}
+              />
+            ))
+          ) : (
+            <p className="text-zinc-500 col-span-full">No projects found.</p>
+          )}
         </div>
       </section>
 
@@ -169,6 +166,46 @@ export default function Home() {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Latest Insights Section */}
+      <section id="blog" className="container mx-auto px-6 py-32 border-t border-zinc-800/50">
+        <div className="flex flex-col items-start gap-4 mb-16">
+          <h2 className="text-3xl md:text-5xl font-bold font-prompt">
+            Latest <span className="text-zinc-500">Insights</span>
+          </h2>
+          <p className="text-zinc-400 max-w-xl">
+            Sharing my thoughts on development, design, and the evolving Web3 landscape.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {blogPosts.length > 0 ? (
+            blogPosts.map((post) => (
+              <BlogPostCard 
+                key={post.id}
+                title={post.title}
+                summary={post.summary}
+                tags={post.tags}
+                coverImage={post.coverImage}
+                slug={post.slug}
+                date={post.date}
+              />
+            ))
+          ) : (
+            <p className="text-zinc-500 col-span-full">No blog posts found.</p>
+          )}
+        </div>
+        
+        {blogPosts.length > 0 && (
+          <div className="mt-12 text-center">
+            <Link href="/blog">
+              <Button variant="outline" className="rounded-full border-zinc-800 hover:bg-zinc-900">
+                Read All Posts <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </Link>
+          </div>
+        )}
       </section>
 
       {/* Footer / CTA */}
