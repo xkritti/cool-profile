@@ -111,3 +111,63 @@ export async function getNotionPageBySlug(slug: string): Promise<NotionPage | nu
     return null;
   }
 }
+
+export interface NotionBlock {
+  id: string;
+  type: string;
+  content: string;
+}
+
+export async function getNotionPageBlocks(pageId: string): Promise<NotionBlock[]> {
+  if (!NOTION_TOKEN) {
+    console.error("Missing Notion token");
+    return [];
+  }
+
+  try {
+    const response = await fetch(`https://api.notion.com/v1/blocks/${pageId}/children`, {
+      method: "GET",
+      headers: {
+        "Authorization": `Bearer ${NOTION_TOKEN}`,
+        "Notion-Version": "2022-06-28",
+      },
+    });
+
+    if (!response.ok) {
+      console.error("Failed to fetch blocks");
+      return [];
+    }
+
+    const data = await response.json();
+    return data.results.map((block: any) => {
+      let content = "";
+      
+      // Extract text content based on block type
+      if (block.type === "paragraph" && block.paragraph?.rich_text) {
+        content = block.paragraph.rich_text.map((t: any) => t.plain_text).join("");
+      } else if (block.type === "heading_1" && block.heading_1?.rich_text) {
+        content = "# " + block.heading_1.rich_text.map((t: any) => t.plain_text).join("");
+      } else if (block.type === "heading_2" && block.heading_2?.rich_text) {
+        content = "## " + block.heading_2.rich_text.map((t: any) => t.plain_text).join("");
+      } else if (block.type === "heading_3" && block.heading_3?.rich_text) {
+        content = "### " + block.heading_3.rich_text.map((t: any) => t.plain_text).join("");
+      } else if (block.type === "bulleted_list_item" && block.bulleted_list_item?.rich_text) {
+        content = "- " + block.bulleted_list_item.rich_text.map((t: any) => t.plain_text).join("");
+      } else if (block.type === "numbered_list_item" && block.numbered_list_item?.rich_text) {
+        content = "1. " + block.numbered_list_item.rich_text.map((t: any) => t.plain_text).join("");
+      } else if (block.type === "code" && block.code?.rich_text) {
+        const code = block.code.rich_text.map((t: any) => t.plain_text).join("");
+        content = "```\n" + code + "\n```";
+      }
+
+      return {
+        id: block.id,
+        type: block.type,
+        content,
+      };
+    });
+  } catch (error) {
+    console.error("Failed to fetch Notion blocks:", error);
+    return [];
+  }
+}
