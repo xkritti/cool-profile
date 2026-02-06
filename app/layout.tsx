@@ -31,46 +31,46 @@ export default function RootLayout({
           {/* Enhanced Navbar */}
           <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
             <div className="relative">
-              {/* Glow effect */}
-              <div className="absolute -inset-[1px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl opacity-20 dark:opacity-30 blur-sm" />
+              {/* Glow effect - Purple/Pink */}
+              <div className="absolute -inset-[1px] bg-gradient-to-r from-purple-500 via-pink-500 to-fuchsia-500 rounded-2xl opacity-30 dark:opacity-30 blur-sm" />
               
               {/* Navbar content */}
-              <div className="relative bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl">
+              <div className="relative bg-white/90 dark:bg-zinc-900/80 backdrop-blur-xl border border-purple-200 dark:border-zinc-800 rounded-2xl shadow-2xl shadow-purple-200/50 dark:shadow-purple-900/20">
                 <div className="flex h-16 items-center justify-between px-6">
                   {/* Logo */}
                   <Link href="/" className="flex items-center gap-2 font-prompt text-lg font-bold group">
                     <div className="relative">
-                      <div className="h-3 w-3 rounded-full bg-indigo-500 animate-pulse" />
-                      <div className="absolute inset-0 h-3 w-3 rounded-full bg-indigo-500 animate-ping opacity-75" />
+                      <div className="h-3 w-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 animate-pulse" />
+                      <div className="absolute inset-0 h-3 w-3 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 animate-ping opacity-75" />
                     </div>
-                    <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent group-hover:from-purple-600 group-hover:to-pink-600 dark:group-hover:from-purple-400 dark:group-hover:to-pink-400 transition-all">
+                    <span className="bg-gradient-to-r from-purple-700 to-pink-700 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent group-hover:from-pink-700 group-hover:to-fuchsia-700 dark:group-hover:from-pink-400 dark:group-hover:to-fuchsia-400 transition-all">
                       Krittamet
                     </span>
                   </Link>
                   
                   {/* Nav Links */}
-                  <div className="hidden md:flex items-center gap-1 bg-zinc-100/50 dark:bg-zinc-800/50 rounded-xl p-1">
+                  <div className="hidden md:flex items-center gap-1 bg-purple-100/70 dark:bg-zinc-800/50 rounded-xl p-1 backdrop-blur-sm">
                     <Link 
                       href="/" 
-                      className="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-white dark:hover:bg-zinc-700 rounded-lg transition-all"
+                      className="px-4 py-2 text-sm font-medium text-purple-700 dark:text-zinc-400 hover:text-purple-900 dark:hover:text-white hover:bg-white dark:hover:bg-zinc-700 rounded-lg transition-all"
                     >
                       Home
                     </Link>
                     <Link 
                       href="/blog" 
-                      className="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-white dark:hover:bg-zinc-700 rounded-lg transition-all"
+                      className="px-4 py-2 text-sm font-medium text-purple-700 dark:text-zinc-400 hover:text-purple-900 dark:hover:text-white hover:bg-white dark:hover:bg-zinc-700 rounded-lg transition-all"
                     >
                       Blog
                     </Link>
                     <Link 
                       href="/#projects" 
-                      className="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-white dark:hover:bg-zinc-700 rounded-lg transition-all"
+                      className="px-4 py-2 text-sm font-medium text-purple-700 dark:text-zinc-400 hover:text-purple-900 dark:hover:text-white hover:bg-white dark:hover:bg-zinc-700 rounded-lg transition-all"
                     >
                       Projects
                     </Link>
                     <Link 
                       href="/#experience" 
-                      className="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-white dark:hover:bg-zinc-700 rounded-lg transition-all"
+                      className="px-4 py-2 text-sm font-medium text-purple-700 dark:text-zinc-400 hover:text-purple-900 dark:hover:text-white hover:bg-white dark:hover:bg-zinc-700 rounded-lg transition-all"
                     >
                       Experience
                     </Link>
@@ -81,7 +81,7 @@ export default function RootLayout({
                     <ThemeToggle />
                     <Button 
                       size="sm" 
-                      className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-xl font-medium shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-all hover:scale-105"
+                      className="bg-gradient-to-r from-purple-600 via-pink-600 to-fuchsia-600 hover:from-purple-700 hover:via-pink-700 hover:to-fuchsia-700 text-white rounded-xl font-medium shadow-lg shadow-purple-300/50 dark:shadow-purple-500/30 hover:shadow-purple-400/70 dark:hover:shadow-purple-500/50 transition-all hover:scale-105"
                     >
                       Contact Me
                     </Button>

@@ -35,7 +35,7 @@ export function TechMarquee() {
         {/* First Loop */}
         <div className="flex animate-loop-scroll space-x-12 px-6 group-hover:paused">
           {techs.map((tech, i) => (
-            <div key={i} className="flex items-center space-x-2 text-zinc-400 dark:text-zinc-500 transition-colors hover:text-indigo-600 dark:hover:text-indigo-400">
+            <div key={i} className="flex items-center space-x-2 text-purple-400 dark:text-zinc-500 transition-colors hover:text-pink-600 dark:hover:text-purple-400">
               <tech.icon className="h-6 w-6" />
               <span className="font-mono text-lg font-bold">{tech.name}</span>
             </div>
@@ -44,7 +44,7 @@ export function TechMarquee() {
         {/* Duplicate Loop for seamless effect */}
         <div className="flex animate-loop-scroll space-x-12 px-6 group-hover:paused" aria-hidden="true">
           {techs.map((tech, i) => (
-            <div key={`dup-${i}`} className="flex items-center space-x-2 text-zinc-400 dark:text-zinc-500 transition-colors hover:text-indigo-600 dark:hover:text-indigo-400">
+            <div key={`dup-${i}`} className="flex items-center space-x-2 text-purple-400 dark:text-zinc-500 transition-colors hover:text-pink-600 dark:hover:text-purple-400">
               <tech.icon className="h-6 w-6" />
               <span className="font-mono text-lg font-bold">{tech.name}</span>
             </div>

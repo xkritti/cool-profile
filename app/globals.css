@@ -4,25 +4,50 @@
 
 @layer base {
   :root {
-    --background: 240 10% 3.9%; /* zinc-950 */
-    --foreground: 0 0% 98%; /* zinc-50 */
-    --card: 240 10% 3.9%;
+    /* Light Theme - Purple/Pink focused */
+    --background: 0 0% 100%; /* white */
+    --foreground: 280 70% 20%; /* purple-900 */
+    --card: 280 100% 99%; /* very light purple tint */
+    --card-foreground: 280 70% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 280 70% 20%;
+    --primary: 280 81% 56%; /* purple-600 */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 330 81% 60%; /* pink-600 */
+    --secondary-foreground: 0 0% 100%;
+    --muted: 280 40% 96%; /* purple-50 */
+    --muted-foreground: 280 40% 40%;
+    --accent: 280 100% 97%; /* purple-50 */
+    --accent-foreground: 280 70% 30%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 280 60% 90%; /* purple-200 */
+    --input: 280 60% 90%;
+    --ring: 280 81% 56%; /* purple-600 */
+    --radius: 1rem;
+  }
+
+  .dark {
+    /* Dark Theme */
+    --background: 240 10% 8%; /* zinc-950 */
+    --foreground: 0 0% 98%;
+    --card: 240 6% 12%;
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: 240 10% 8%;
     --popover-foreground: 0 0% 98%;
-    --primary: 263.4 70% 50.4%; /* Indigo/Violetish */
-    --primary-foreground: 210 40% 98%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
+    --primary: 280 70% 70%; /* purple-400 */
+    --primary-foreground: 280 70% 10%;
+    --secondary: 330 70% 70%; /* pink-400 */
+    --secondary-foreground: 330 70% 10%;
+    --muted: 240 6% 18%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 280 50% 20%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62% 45%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 240 4% 25%;
+    --input: 240 4% 25%;
+    --ring: 280 70% 70%;
   }
 }
 
@@ -31,6 +56,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground transition-colors duration-300;
   }
 }
