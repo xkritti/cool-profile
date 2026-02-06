@@ -29,38 +29,39 @@ export default async function Home() {
       {/* Hero Section */}
       <section id="about" className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-4 pt-20">
         {/* Background Gradients */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-300/20 dark:bg-indigo-500/10 rounded-full blur-[100px] opacity-50 animate-pulse" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-br from-indigo-200/30 via-purple-200/20 to-pink-200/30 dark:from-indigo-500/10 dark:via-purple-500/10 dark:to-pink-500/10 rounded-full blur-[120px] opacity-70 dark:opacity-50 animate-pulse" />
+        <div className="absolute top-1/4 right-1/4 w-[400px] h-[400px] bg-gradient-to-br from-pink-200/20 to-purple-200/20 dark:from-pink-500/5 dark:to-purple-500/5 rounded-full blur-[100px] opacity-50 dark:opacity-30" />
         
         <div className="relative z-10 flex flex-col items-center text-center space-y-8 max-w-4xl">
-          <Badge variant="outline" className="border-indigo-500/30 bg-indigo-100/50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 px-4 py-1 rounded-full text-sm backdrop-blur-md">
+          <Badge variant="outline" className="border-indigo-200 dark:border-indigo-500/30 bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-500/10 dark:to-purple-500/10 text-indigo-700 dark:text-indigo-300 px-5 py-2 rounded-full text-sm backdrop-blur-xl shadow-lg shadow-indigo-100/50 dark:shadow-indigo-500/10">
             <Sparkles className="w-3 h-3 mr-2 inline" /> Available for Hire
           </Badge>
           
           <h1 className="font-prompt text-5xl md:text-8xl font-black tracking-tight leading-tight">
             Building the <br />
-            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent animate-gradient-x">
               Web3 Future
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
-            I'm <span className="text-zinc-900 dark:text-zinc-100 font-semibold">Krittamet (xspeed)</span>. A UI Engineer & Web3 Developer crafting pixel-perfect interfaces and decentralized experiences.
+          <p className="text-lg md:text-xl text-zinc-700 dark:text-zinc-400 max-w-2xl leading-relaxed">
+            I'm <span className="text-zinc-900 dark:text-zinc-100 font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">Krittamet (xspeed)</span>. A UI Engineer & Web3 Developer crafting pixel-perfect interfaces and decentralized experiences.
           </p>
 
           <div className="flex flex-col md:flex-row gap-4 pt-4">
             <Link href="#projects">
-              <Button size="lg" className="h-12 px-8 text-lg bg-indigo-600 hover:bg-indigo-700 text-white rounded-full shadow-[0_0_20px_-5px_rgba(79,70,229,0.5)] transition-all hover:scale-105">
-                View Projects <ArrowRight className="ml-2 w-4 h-4" />
+              <Button size="lg" className="h-14 px-10 text-lg bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-2xl shadow-xl shadow-indigo-200/50 dark:shadow-indigo-500/30 transition-all hover:scale-105 hover:shadow-2xl">
+                View Projects <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-lg border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full">
-              <Github className="mr-2 w-4 h-4" /> GitHub
+            <Button size="lg" variant="outline" className="h-14 px-10 text-lg border-2 border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 hover:border-zinc-400 dark:hover:border-zinc-600 rounded-2xl transition-all">
+              <Github className="mr-2 w-5 h-5" /> GitHub
             </Button>
           </div>
         </div>
 
         {/* Floating Abstract Elements */}
-        <div className="absolute bottom-10 animate-bounce text-zinc-400 dark:text-zinc-600">
+        <div className="absolute bottom-10 animate-bounce text-zinc-300 dark:text-zinc-600">
            <Cpu className="w-6 h-6 opacity-50" />
         </div>
       </section>

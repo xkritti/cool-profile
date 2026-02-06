@@ -15,25 +15,34 @@ interface ProjectCardProps {
 export function ProjectCard({ title, description, tags, link, icon, year }: ProjectCardProps) {
   return (
     <Link href={link} target="_blank" className="block group h-full">
-      <Card className="h-full bg-zinc-900/30 border-zinc-800 backdrop-blur-md transition-all duration-300 hover:border-indigo-500/50 hover:bg-zinc-900/60 hover:shadow-[0_0_20px_-5px_rgba(79,70,229,0.3)] relative overflow-hidden">
+      <Card className="h-full bg-white dark:bg-zinc-900/30 border-zinc-200 dark:border-zinc-800 backdrop-blur-md transition-all duration-300 
+        hover:border-indigo-300 dark:hover:border-indigo-500/50 hover:bg-zinc-50 dark:hover:bg-zinc-900/60 
+        hover:shadow-xl hover:shadow-indigo-200/30 dark:hover:shadow-indigo-500/20 
+        relative overflow-hidden rounded-2xl">
         
         {/* Glow Effect Background */}
         <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500/0 via-indigo-500/0 to-pink-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl pointer-events-none"></div>
 
         <CardHeader>
           <div className="flex justify-between items-start mb-3">
-            <div className="p-2.5 rounded-xl bg-zinc-950 border border-zinc-800 text-indigo-400 group-hover:text-indigo-300 group-hover:border-indigo-500/30 group-hover:bg-indigo-500/10 transition-colors z-10">
+            <div className="p-2.5 rounded-xl bg-zinc-100 dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 text-indigo-600 dark:text-indigo-400 
+              group-hover:text-indigo-700 dark:group-hover:text-indigo-300 
+              group-hover:border-indigo-300 dark:group-hover:border-indigo-500/30 
+              group-hover:bg-indigo-50 dark:group-hover:bg-indigo-500/10 transition-colors z-10">
               {icon || <FolderGit2 className="h-5 w-5" />}
             </div>
-            <ArrowUpRight className="h-5 w-5 text-zinc-600 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 z-10" />
+            <ArrowUpRight className="h-5 w-5 text-zinc-400 dark:text-zinc-600 group-hover:text-zinc-900 dark:group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 z-10" />
           </div>
-          <CardTitle className="text-xl font-bold font-prompt text-zinc-100 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-300 group-hover:to-pink-300 transition-all z-10">
+          <CardTitle className="text-xl font-bold font-prompt text-zinc-900 dark:text-zinc-100 
+            group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r 
+            group-hover:from-indigo-600 group-hover:to-pink-600 
+            dark:group-hover:from-indigo-300 dark:group-hover:to-pink-300 transition-all z-10">
             {title}
           </CardTitle>
         </CardHeader>
         
         <CardContent className="z-10">
-          <CardDescription className="text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors line-clamp-3">
+          <CardDescription className="text-zinc-600 dark:text-zinc-400 leading-relaxed group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors line-clamp-3">
             {description}
           </CardDescription>
         </CardContent>
@@ -43,7 +52,11 @@ export function ProjectCard({ title, description, tags, link, icon, year }: Proj
             <Badge 
               key={tag} 
               variant="secondary" 
-              className="bg-zinc-950/50 border-zinc-800/50 text-zinc-500 group-hover:text-indigo-200 group-hover:bg-indigo-900/20 group-hover:border-indigo-500/20 transition-all"
+              className="bg-zinc-100 dark:bg-zinc-950/50 border-zinc-200 dark:border-zinc-800/50 text-zinc-600 dark:text-zinc-500 
+                group-hover:text-indigo-700 dark:group-hover:text-indigo-200 
+                group-hover:bg-indigo-50 dark:group-hover:bg-indigo-900/20 
+                group-hover:border-indigo-200 dark:group-hover:border-indigo-500/20 
+                transition-all rounded-full"
             >
               {tag}
             </Badge>
