@@ -24,51 +24,64 @@ export default async function Home() {
   const blogPosts = allBlogPosts.filter(p => p.published).slice(0, 3);
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-purple-50 dark:bg-zinc-950 text-purple-900 dark:text-zinc-100 selection:bg-purple-500/30 transition-colors">
+    <main className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50/30 to-fuchsia-50 dark:from-zinc-950 dark:via-purple-950/20 dark:to-zinc-950 text-purple-900 dark:text-zinc-50 selection:bg-purple-300/40 dark:selection:bg-purple-500/30 transition-colors duration-500">
 
       {/* Hero Section */}
-      <section id="about" className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-4 pt-20">
-        {/* Background Gradients - More Purple/Pink */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-purple-400/40 via-pink-400/30 to-fuchsia-400/40 dark:from-purple-500/10 dark:via-pink-500/10 dark:to-fuchsia-500/10 rounded-full blur-[140px] opacity-80 dark:opacity-50 animate-pulse" />
-        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-pink-300/30 to-purple-300/30 dark:from-pink-500/5 dark:to-purple-500/5 rounded-full blur-[120px] opacity-60 dark:opacity-30 animate-pulse" style={{animationDelay: '2s'}} />
-        <div className="absolute bottom-1/4 left-1/4 w-[400px] h-[400px] bg-gradient-to-br from-fuchsia-300/25 to-purple-300/25 dark:from-fuchsia-500/5 dark:to-purple-500/5 rounded-full blur-[100px] opacity-50 dark:opacity-25" />
+      <section id="about" className="relative flex min-h-[92vh] flex-col items-center justify-center overflow-hidden px-4 pt-24 pb-16">
+        {/* Sophisticated Background Gradients */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Main gradient orb */}
+          <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gradient-to-br from-purple-300/60 via-pink-300/40 to-fuchsia-300/50 dark:from-purple-600/20 dark:via-pink-600/15 dark:to-fuchsia-600/20 rounded-full blur-3xl opacity-70 dark:opacity-40 animate-pulse" />
+          {/* Secondary orbs */}
+          <div className="absolute top-20 right-1/4 w-[600px] h-[600px] bg-gradient-to-bl from-pink-400/40 to-purple-400/30 dark:from-pink-500/15 dark:to-purple-500/10 rounded-full blur-3xl opacity-60 dark:opacity-30" />
+          <div className="absolute bottom-20 left-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-fuchsia-400/35 to-purple-400/25 dark:from-fuchsia-500/12 dark:to-purple-500/8 rounded-full blur-3xl opacity-50 dark:opacity-25" />
+        </div>
         
-        <div className="relative z-10 flex flex-col items-center text-center space-y-8 max-w-4xl">
-          <Badge variant="outline" className="border-purple-300 dark:border-purple-500/30 bg-gradient-to-r from-purple-100 to-pink-100 dark:from-purple-500/10 dark:to-pink-500/10 text-purple-700 dark:text-purple-300 px-6 py-2.5 rounded-full text-sm font-medium backdrop-blur-xl shadow-lg shadow-purple-200/60 dark:shadow-purple-500/10">
-            <Sparkles className="w-3.5 h-3.5 mr-2 inline" /> Available for Hire
+        <div className="relative z-10 flex flex-col items-center text-center space-y-10 max-w-5xl">
+          {/* Badge */}
+          <Badge variant="outline" className="border-purple-300/60 dark:border-purple-500/40 bg-white/80 dark:bg-purple-950/50 text-purple-700 dark:text-purple-300 px-6 py-2.5 rounded-full text-sm font-semibold backdrop-blur-xl shadow-xl shadow-purple-200/60 dark:shadow-purple-900/30 hover:shadow-2xl hover:scale-105 transition-all duration-300">
+            <Sparkles className="w-4 h-4 mr-2 inline animate-pulse" /> Available for Hire
           </Badge>
           
-          <h1 className="font-prompt text-5xl md:text-8xl font-black tracking-tight leading-tight text-purple-900 dark:text-white">
+          {/* Main Heading */}
+          <h1 className="font-prompt text-6xl md:text-9xl font-black tracking-tight leading-[1.1] text-purple-950 dark:text-white drop-shadow-sm">
             Building the <br />
-            <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-fuchsia-600 dark:from-purple-400 dark:via-pink-400 dark:to-fuchsia-400 bg-clip-text text-transparent animate-gradient-x">
-              Web3 Future
+            <span className="relative inline-block">
+              <span className="bg-gradient-to-r from-purple-600 via-pink-600 to-fuchsia-600 dark:from-purple-400 dark:via-pink-400 dark:to-fuchsia-400 bg-clip-text text-transparent animate-gradient-x">
+                Web3 Future
+              </span>
+              {/* Underline decoration */}
+              <div className="absolute -bottom-2 left-0 right-0 h-1.5 bg-gradient-to-r from-purple-600 via-pink-600 to-fuchsia-600 dark:from-purple-400 dark:via-pink-400 dark:to-fuchsia-400 rounded-full opacity-60" />
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-purple-700 dark:text-zinc-400 max-w-2xl leading-relaxed">
-            I'm <span className="text-purple-900 dark:text-zinc-100 font-bold bg-gradient-to-r from-purple-700 to-pink-700 dark:from-purple-400 dark:to-pink-400 bg-clip-text text-transparent">Krittamet (xspeed)</span>. A UI Engineer & Web3 Developer crafting pixel-perfect interfaces and decentralized experiences.
+          {/* Description */}
+          <p className="text-xl md:text-2xl text-purple-800 dark:text-zinc-300 max-w-3xl leading-relaxed font-medium">
+            I'm <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-pink-700 to-fuchsia-700 dark:from-purple-300 dark:via-pink-300 dark:to-fuchsia-300">Krittamet (xspeed)</span>. A UI Engineer & Web3 Developer crafting pixel-perfect interfaces and decentralized experiences.
           </p>
 
-          <div className="flex flex-col md:flex-row gap-4 pt-4">
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-5 pt-6">
             <Link href="#projects">
-              <Button size="lg" className="h-14 px-10 text-lg bg-gradient-to-r from-purple-600 via-pink-600 to-fuchsia-600 hover:from-purple-700 hover:via-pink-700 hover:to-fuchsia-700 text-white rounded-2xl shadow-2xl shadow-purple-300/60 dark:shadow-purple-500/30 transition-all hover:scale-105 hover:shadow-purple-400/80 dark:hover:shadow-purple-500/50">
-                View Projects <ArrowRight className="ml-2 w-5 h-5" />
+              <Button size="lg" className="h-16 px-12 text-lg font-bold bg-gradient-to-r from-purple-600 via-pink-600 to-fuchsia-600 hover:from-purple-700 hover:via-pink-700 hover:to-fuchsia-700 text-white rounded-2xl shadow-2xl shadow-purple-400/60 dark:shadow-purple-600/40 transition-all duration-300 hover:scale-105 hover:shadow-purple-500/80 dark:hover:shadow-purple-500/60 group">
+                View Projects 
+                <ArrowRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="h-14 px-10 text-lg border-2 border-purple-300 dark:border-purple-700 text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-900/30 hover:border-purple-400 dark:hover:border-purple-600 rounded-2xl transition-all backdrop-blur-sm">
-              <Github className="mr-2 w-5 h-5" /> GitHub
+            <Button size="lg" variant="outline" className="h-16 px-12 text-lg font-bold border-2 border-purple-400 dark:border-purple-600 text-purple-700 dark:text-purple-300 hover:bg-purple-100 dark:hover:bg-purple-950/60 hover:border-purple-500 dark:hover:border-purple-500 rounded-2xl shadow-xl shadow-purple-200/50 dark:shadow-purple-900/30 transition-all duration-300 hover:scale-105 backdrop-blur-sm">
+              <Github className="mr-3 w-5 h-5" /> View GitHub
             </Button>
           </div>
         </div>
 
-        {/* Floating Abstract Elements */}
-        <div className="absolute bottom-10 animate-bounce text-purple-300 dark:text-purple-600">
-           <Cpu className="w-6 h-6 opacity-50" />
+        {/* Floating Element */}
+        <div className="absolute bottom-16 animate-bounce text-purple-400/60 dark:text-purple-500/40">
+           <Cpu className="w-7 h-7" />
         </div>
       </section>
 
       {/* Tech Stack Marquee */}
-      <section className="border-y border-purple-200 dark:border-zinc-800 bg-white/50 dark:bg-zinc-900/30 backdrop-blur-sm transition-colors">
+      <section className="border-y-2 border-purple-200/60 dark:border-purple-900/40 bg-white/60 dark:bg-zinc-900/40 backdrop-blur-md transition-colors">
         <TechMarquee />
       </section>
 
