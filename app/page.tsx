@@ -24,48 +24,27 @@ export default async function Home() {
   const blogPosts = allBlogPosts.filter(p => p.published).slice(0, 3);
 
   return (
-    <main className="min-h-screen bg-zinc-950 text-zinc-100 selection:bg-indigo-500/30">
-      
-      {/* Navbar Placeholder - Simple & Floating */}
-      <nav className="fixed top-0 z-50 w-full border-b border-zinc-800/50 bg-zinc-950/80 backdrop-blur-md">
-        <div className="container mx-auto flex h-16 items-center justify-between px-6">
-          <div className="flex items-center gap-2 font-prompt text-lg font-bold">
-            <div className="h-3 w-3 rounded-full bg-indigo-500 animate-pulse" />
-            <span className="bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-              Krittamet
-            </span>
-          </div>
-          <div className="hidden md:flex gap-6 text-sm font-medium text-zinc-400">
-            <Link href="#about" className="hover:text-white transition-colors">About</Link>
-            <Link href="#projects" className="hover:text-white transition-colors">Projects</Link>
-            <Link href="#experience" className="hover:text-white transition-colors">Experience</Link>
-            <Link href="/blog" className="hover:text-white transition-colors">Blog</Link>
-          </div>
-          <Button size="sm" className="bg-white text-black hover:bg-zinc-200 rounded-full font-medium">
-            Contact Me
-          </Button>
-        </div>
-      </nav>
+    <main className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 selection:bg-indigo-500/30 transition-colors">
 
       {/* Hero Section */}
       <section id="about" className="relative flex min-h-[90vh] flex-col items-center justify-center overflow-hidden px-4 pt-20">
         {/* Background Gradients */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-[100px] opacity-50 animate-pulse" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-300/20 dark:bg-indigo-500/10 rounded-full blur-[100px] opacity-50 animate-pulse" />
         
         <div className="relative z-10 flex flex-col items-center text-center space-y-8 max-w-4xl">
-          <Badge variant="outline" className="border-indigo-500/30 bg-indigo-500/10 text-indigo-300 px-4 py-1 rounded-full text-sm backdrop-blur-md">
+          <Badge variant="outline" className="border-indigo-500/30 bg-indigo-100/50 dark:bg-indigo-500/10 text-indigo-700 dark:text-indigo-300 px-4 py-1 rounded-full text-sm backdrop-blur-md">
             <Sparkles className="w-3 h-3 mr-2 inline" /> Available for Hire
           </Badge>
           
           <h1 className="font-prompt text-5xl md:text-8xl font-black tracking-tight leading-tight">
             Building the <br />
-            <span className="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 dark:from-indigo-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent">
               Web3 Future
             </span>
           </h1>
           
-          <p className="text-lg md:text-xl text-zinc-400 max-w-2xl leading-relaxed">
-            I'm <span className="text-zinc-100 font-semibold">Krittamet (xspeed)</span>. A UI Engineer & Web3 Developer crafting pixel-perfect interfaces and decentralized experiences.
+          <p className="text-lg md:text-xl text-zinc-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
+            I'm <span className="text-zinc-900 dark:text-zinc-100 font-semibold">Krittamet (xspeed)</span>. A UI Engineer & Web3 Developer crafting pixel-perfect interfaces and decentralized experiences.
           </p>
 
           <div className="flex flex-col md:flex-row gap-4 pt-4">
@@ -74,20 +53,20 @@ export default async function Home() {
                 View Projects <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>
-            <Button size="lg" variant="outline" className="h-12 px-8 text-lg border-zinc-700 text-zinc-300 hover:bg-zinc-800 rounded-full">
+            <Button size="lg" variant="outline" className="h-12 px-8 text-lg border-zinc-300 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 rounded-full">
               <Github className="mr-2 w-4 h-4" /> GitHub
             </Button>
           </div>
         </div>
 
         {/* Floating Abstract Elements */}
-        <div className="absolute bottom-10 animate-bounce text-zinc-600">
+        <div className="absolute bottom-10 animate-bounce text-zinc-400 dark:text-zinc-600">
            <Cpu className="w-6 h-6 opacity-50" />
         </div>
       </section>
 
       {/* Tech Stack Marquee */}
-      <section className="border-y border-zinc-800 bg-zinc-900/30">
+      <section className="border-y border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900/30 transition-colors">
         <TechMarquee />
       </section>
 
@@ -95,9 +74,9 @@ export default async function Home() {
       <section id="projects" className="container mx-auto px-6 py-32">
         <div className="flex flex-col items-start gap-4 mb-16">
           <h2 className="text-3xl md:text-5xl font-bold font-prompt">
-            Selected <span className="text-zinc-500">Works</span>
+            Selected <span className="text-zinc-400 dark:text-zinc-500">Works</span>
           </h2>
-          <p className="text-zinc-400 max-w-xl">
+          <p className="text-zinc-600 dark:text-zinc-400 max-w-xl">
             A showcase of my recent experiments, production apps, and contributions to the open-source ecosystem.
           </p>
         </div>
