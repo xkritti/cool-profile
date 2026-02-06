@@ -28,29 +28,72 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${prompt.variable} bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 font-sans antialiased selection:bg-indigo-500/30 overflow-x-hidden transition-colors duration-300`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-          {/* Navbar */}
-          <nav className="fixed top-0 z-50 w-full border-b border-zinc-200 dark:border-zinc-800/50 bg-white/80 dark:bg-zinc-950/80 backdrop-blur-md transition-colors">
-            <div className="container mx-auto flex h-16 items-center justify-between px-6">
-              <div className="flex items-center gap-2 font-prompt text-lg font-bold">
-                <div className="h-3 w-3 rounded-full bg-indigo-500 animate-pulse" />
-                <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent">
-                  Krittamet
-                </span>
-              </div>
-              <div className="hidden md:flex gap-6 text-sm font-medium text-zinc-600 dark:text-zinc-400">
-                <Link href="/" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Home</Link>
-                <Link href="/blog" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Blog</Link>
-                <Link href="/#projects" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Projects</Link>
-                <Link href="/#experience" className="hover:text-zinc-900 dark:hover:text-white transition-colors">Experience</Link>
-              </div>
-              <div className="flex items-center gap-3">
-                <ThemeToggle />
-                <Button size="sm" className="bg-zinc-900 dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 rounded-full font-medium transition-colors">
-                  Contact Me
-                </Button>
+          {/* Enhanced Navbar */}
+          <nav className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl">
+            <div className="relative">
+              {/* Glow effect */}
+              <div className="absolute -inset-[1px] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-2xl opacity-20 dark:opacity-30 blur-sm" />
+              
+              {/* Navbar content */}
+              <div className="relative bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800 rounded-2xl shadow-2xl">
+                <div className="flex h-16 items-center justify-between px-6">
+                  {/* Logo */}
+                  <Link href="/" className="flex items-center gap-2 font-prompt text-lg font-bold group">
+                    <div className="relative">
+                      <div className="h-3 w-3 rounded-full bg-indigo-500 animate-pulse" />
+                      <div className="absolute inset-0 h-3 w-3 rounded-full bg-indigo-500 animate-ping opacity-75" />
+                    </div>
+                    <span className="bg-gradient-to-r from-indigo-600 to-purple-600 dark:from-indigo-400 dark:to-purple-400 bg-clip-text text-transparent group-hover:from-purple-600 group-hover:to-pink-600 dark:group-hover:from-purple-400 dark:group-hover:to-pink-400 transition-all">
+                      Krittamet
+                    </span>
+                  </Link>
+                  
+                  {/* Nav Links */}
+                  <div className="hidden md:flex items-center gap-1 bg-zinc-100/50 dark:bg-zinc-800/50 rounded-xl p-1">
+                    <Link 
+                      href="/" 
+                      className="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-white dark:hover:bg-zinc-700 rounded-lg transition-all"
+                    >
+                      Home
+                    </Link>
+                    <Link 
+                      href="/blog" 
+                      className="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-white dark:hover:bg-zinc-700 rounded-lg transition-all"
+                    >
+                      Blog
+                    </Link>
+                    <Link 
+                      href="/#projects" 
+                      className="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-white dark:hover:bg-zinc-700 rounded-lg transition-all"
+                    >
+                      Projects
+                    </Link>
+                    <Link 
+                      href="/#experience" 
+                      className="px-4 py-2 text-sm font-medium text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:bg-white dark:hover:bg-zinc-700 rounded-lg transition-all"
+                    >
+                      Experience
+                    </Link>
+                  </div>
+                  
+                  {/* Right Actions */}
+                  <div className="flex items-center gap-3">
+                    <ThemeToggle />
+                    <Button 
+                      size="sm" 
+                      className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-xl font-medium shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 transition-all hover:scale-105"
+                    >
+                      Contact Me
+                    </Button>
+                  </div>
+                </div>
               </div>
             </div>
           </nav>
+          
+          {/* Add padding to account for floating navbar */}
+          <div className="h-20" />
+          
           {children}
         </ThemeProvider>
       </body>

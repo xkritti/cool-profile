@@ -14,34 +14,37 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <div className="w-10 h-10 rounded-lg bg-zinc-800/50 border border-zinc-700/50 animate-pulse" />
+      <div className="w-11 h-11 rounded-xl bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 animate-pulse" />
     );
   }
 
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="group relative w-10 h-10 rounded-lg bg-zinc-800/50 dark:bg-zinc-800/50 border border-zinc-300 dark:border-zinc-700/50 
-        hover:bg-zinc-200 dark:hover:bg-zinc-700/80 hover:border-zinc-400 dark:hover:border-zinc-600 
-        transition-all duration-300 flex items-center justify-center overflow-hidden"
+      className="group relative w-11 h-11 rounded-xl bg-zinc-100 hover:bg-zinc-200 dark:bg-zinc-800 dark:hover:bg-zinc-700 
+        border border-zinc-200 hover:border-zinc-300 dark:border-zinc-700 dark:hover:border-zinc-600 
+        transition-all duration-300 flex items-center justify-center overflow-hidden shadow-lg hover:shadow-xl"
       aria-label="Toggle theme"
     >
       <div className="relative w-5 h-5">
         <Sun
-          className={`absolute inset-0 w-5 h-5 text-amber-500 transition-all duration-300 ${
+          className={`absolute inset-0 w-5 h-5 text-amber-500 transition-all duration-500 ${
             theme === "dark"
               ? "rotate-90 scale-0 opacity-0"
               : "rotate-0 scale-100 opacity-100"
           }`}
         />
         <Moon
-          className={`absolute inset-0 w-5 h-5 text-indigo-400 transition-all duration-300 ${
+          className={`absolute inset-0 w-5 h-5 text-indigo-500 transition-all duration-500 ${
             theme === "dark"
               ? "rotate-0 scale-100 opacity-100"
               : "-rotate-90 scale-0 opacity-0"
           }`}
         />
       </div>
+      
+      {/* Hover glow */}
+      <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity bg-gradient-to-r from-amber-500/10 to-indigo-500/10" />
     </button>
   );
 }
